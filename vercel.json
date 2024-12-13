@@ -8,16 +8,16 @@
   ],
   "routes": [
     {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
       "src": "/api/characters",
-      "dest": "/api/characters.js" 
+      "dest": "/api/characters.js"
     },
     {
       "src": "/api/characters/(.*)",
       "dest": "/api/characters.js"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
     }
   ]
 }

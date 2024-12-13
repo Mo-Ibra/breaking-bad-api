@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
-// Import routes and data
+// Import character data
 const characters = require('../data/characters');
+
+// Middleware to parse JSON (if needed)
+app.use(express.json());
 
 // Get all characters
 app.get('/characters', (req, res) => {
@@ -19,4 +22,7 @@ app.get('/characters/:id', (req, res) => {
   }
 });
 
-module.exports = app;
+// Export Express app to handle the API route in Vercel
+module.exports = (req, res) => {
+  app(req, res); // Vercel expects a function that takes req, res
+};
